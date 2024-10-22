@@ -12,9 +12,12 @@ export default function SignUpPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
-  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth)
-  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth)
   const router = useRouter()
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth)
+
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault()

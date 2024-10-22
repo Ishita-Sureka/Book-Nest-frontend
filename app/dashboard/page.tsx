@@ -9,6 +9,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import Link from 'next/link'
 import { X, Check, Trash2 } from 'lucide-react'
 import { getBooks, addBook, updateBook, deleteBook, getProfile } from '../../src/utils/api'
+import Image from 'next/image'
 
 const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_BOOKS_API_KEY
 
@@ -280,9 +281,11 @@ export default function Dashboard() {
                   transition={{ duration: 0.3 }}
                   onClick={() => setExpandedBook(book.id)}
                 >
-                  <img
-                    src={book.volumeInfo.imageLinks?.thumbnail || '/login-image.png?height=200&width=150'}
+                  <Image
+                    src={book.volumeInfo.imageLinks?.thumbnail || '/login-image.png'}
                     alt={book.volumeInfo.title}
+                    // ?height=200&width=150
+                    width={1500} height={200}
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-4">
@@ -432,9 +435,10 @@ export default function Dashboard() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <img
-                      src={book.imageUrl || '/login-image.png?height=200&width=150'}
+                    <Image
+                      src={book.imageUrl || '/login-image.png'}
                       alt={book.title}
+                      width={1500} height={2000}
                       className="w-full h-48 object-cover"
                     />
                     <div className="p-4">
@@ -463,7 +467,7 @@ export default function Dashboard() {
                         </button>
                       </div>
                       <button
-                        onClick={() => deleteBook(book._id)} // Use _id
+                        onClick={() => deleteUserBook(book._id)} // Use _id
                         className="mt-4 w-full bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors flex items-center justify-center"
                       >
                         <Trash2 size={20} className="mr-2" />

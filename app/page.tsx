@@ -6,6 +6,7 @@ import { auth } from '../app/firebase/config'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Feather } from 'lucide-react'
+import Image from 'next/image'
 
 const books = [
   { id: 1, title: "To Kill a Mockingbird", author: "Harper Lee", rating: 4.5, review: "A classic that explores human nature and moral growth through a child's eyes." },
@@ -57,7 +58,7 @@ export default function Home() {
       >
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <img src="https://img.freepik.com/premium-photo/minimal-3d-render-open-book-against-pink-background-book-is-pink-has-blank-pages-scene-is-lit-by-soft-pink-light_14117-321517.jpg?height=50&width=50" alt="Reader"  />
+            <Image src="https://img.freepik.com/premium-photo/minimal-3d-render-open-book-against-pink-background-book-is-pink-has-blank-pages-scene-is-lit-by-soft-pink-light_14117-321517.jpg" alt="Reader" width={500} height={500} />
           </div>
           <div className="md:w-1/2 md:pl-8">
             <h1 className="text-5xl font-serif font-bold mb-4">BookNest</h1>

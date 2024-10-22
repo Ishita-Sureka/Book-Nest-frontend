@@ -11,7 +11,9 @@ import { login } from '../../src/utils/api';  // Ensure this path is correct
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
   const router = useRouter();
 
@@ -22,7 +24,7 @@ export default function LoginPage() {
       if (res) {
         const idToken = await res.user.getIdToken();
         const firebaseUID = res.user.uid;
-        console.log(idToken);
+        //console.log(idToken);
         await login(idToken, firebaseUID);
         router.push('/dashboard');
       }
@@ -44,6 +46,7 @@ export default function LoginPage() {
       console.error(e);
     }
   };
+
 
   return (
     <div className="flex items-center justify-center p-4 bg-cover bg-center bg-[url('https://img.freepik.com/free-vector/beige-background-vector-with-arch-frame_53876-111256.jpg?size=626&ext=jpg&ga=GA1.1.1819120589.1727481600&semt=ais_hybrid')] h-screen w-full">
@@ -110,7 +113,7 @@ export default function LoginPage() {
             </p>
           )}
           <p className="mt-10 text-center text-sm text-gray-500">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Link href="/signup" className="font-semibold leading-6 text-red-400 hover:text-red-500">
               Sign up
             </Link>
